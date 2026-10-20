@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qalareya — Sənətin Dünyasına Açılan Qapı</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!-- PWA (telefonda "Ana ekrana əlavə et" və Play Store üçün) -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0d0d0f">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<!-- Google Identity Services (real Google girişi üçün; Client ID təyin edildikdə işləyir) -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#" class="logo"><span class="logo-mark">◆</span> Qalareya</a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#" class="active">Ana səhifə</a>
+      <a href="#works">İncəsənət əsərləri</a>
+      <a href="#artists">Rəssamlar</a>
+      <a href="#collections">Kolleksiyalar</a>
+      <a href="#about">Haqqımızda</a>
+    </nav>
+    <div class="header-actions">
+      <div class="search-box">
+        <span class="search-ico">⚲</span>
+        <input type="text" id="searchInput" placeholder="Axtarış et...">
+      </div>
+      <button class="icon-btn" title="Bəyənilməşlər">♡<span class="badge" id="likeCount">0</span></button>
+      <button class="icon-btn" id="msgBtn" title="Mesajlar">✉<span class="badge" id="msgCount">0</span></button>
+      <button class="icon-btn" id="uploadBtn" title="Əsər yüklə" style="display:none">➕</button>
+      <button class="icon-btn" id="authBtn" title="Daxil ol / Qeydiyyat">○</button>
+      <button class="icon-btn" title="Səbət">▤<span class="badge" id="cartCount">0</span></button>
+      <button class="burger" id="burger">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <p class="hero-kicker">SƏNƏTİN DÜNYASINA AÇILAN QAPI</p>
+    <h1 class="hero-title">Qalareya</h1>
+    <p class="hero-sub">Rəssamların, sənət əsərlərinin və sənətsevərlərin bir arəya gəldiyi unikal platforma.</p>
+    <a href="#works" class="btn btn-primary">Kəşf et →</a>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories">
+  <div class="container cat-grid" id="catGrid"></div>
+</section>
+
+<!-- FEATURED WORKS -->
+<section class="section" id="works">
+  <div class="container">
+    <div class="section-head">
+      <h2>Seçilmiş əsərlər</h2>
+      <a href="#" class="link-more">Hamısına bax →</a>
+    </div>
+    <div class="works-grid" id="worksGrid"></div>
+  </div>
+</section>
+
+<!-- ARTISTS -->
+<section class="section section-alt" id="artists">
+  <div class="container">
+    <div class="section-head">
+      <h2>Tanınmış rəssamlar</h2>
+      <a href="#" class="link-more">Hamısına bax →</a>
+    </div>
+    <div class="artists-grid" id="artistsGrid"></div>
+  </div>
+</section>
+
+<!-- COLLECTIONS -->
+<section class="section" id="collections">
+  <div class="container">
+    <div class="section-head"><h2>Kolleksiyalar</h2></div>
+    <div class="collections-grid" id="collectionsGrid"></div>
+  </div>
+</section>
+
+<!-- MEMBERS / USER SEARCH -->
+<section class="section section-alt" id="members">
+  <div class="container">
+    <div class="section-head">
+      <h2>İstifadəçilər</h2>
+    </div>
+    <div class="member-search">
+      <span class="search-ico">⚲</span>
+      <input type="text" id="memberSearch" placeholder="İstifadəçi adı və ya email ilə axtar...">
+    </div>
+    <div class="members-grid" id="membersGrid"></div>
+  </div>
+</section>
+
+<!-- CTA / ABOUT -->
+<section class="cta" id="about">
+  <div class="container cta-inner">
+    <h2>Öz əsərlərinizi dünyaya tanıdın</h2>
+    <p>Qalareya rəssamlara əsərlərini nümayiş etdirmək, satmaq və yeni auditoriya ilə əlaqə qurmaq imkanı verir.</p>
+    <a href="#" class="btn btn-primary">Rəssam kimi qoşul</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a href="#" class="logo"><span class="logo-mark">◆</span> Qalareya</a>
+      <p class="foot-desc">Sənətin dünyasına açılan qapı.</p>
+    </div>
+    <div><h4>Platforma</h4><a href="#works">Əsərlər</a><a href="#artists">Rəssamlar</a><a href="#collections">Kolleksiyalar</a></div>
+    <div><h4>Şirkət</h4><a href="#about">Haqqımızda</a><a href="#">Əlaqə</a><a href="#">Karyera</a></div>
+    <div><h4>Bizi izlə</h4><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">Twitter</a></div>
+  </div>
+  <div class="container foot-bottom">© 2026 Qalareya. Bütün hüquqlar qorunur.</div>
+</footer>
+
+<!-- MESSAGES MODAL -->
+<div class="modal-backdrop" id="msgModal">
+  <div class="chat-win">
+    <button class="modal-close" id="msgClose">✕</button>
+    <div class="chat-head">Mesajlar</div>
+    <div class="chat-body">
+      <aside class="chat-list" id="chatList"></aside>
+      <section class="chat-thread">
+        <div class="thread-head" id="threadHead">Söhbət seçin</div>
+        <div class="thread-msgs" id="threadMsgs"></div>
+        <form class="thread-input" id="threadForm">
+          <input type="text" id="msgInput" placeholder="Mesaj yazın..." autocomplete="off" disabled>
+          <button type="submit" class="btn btn-primary" id="msgSend" disabled>Göndər</button>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- UPLOAD MODAL -->
+<div class="modal-backdrop" id="uploadModal">
+  <div class="modal">
+    <button class="modal-close" id="uploadClose">✕</button>
+    <div class="modal-brand"><span class="logo-mark">◆</span> Əsər yüklə</div>
+    <form class="auth-form" id="uploadForm">
+      <label>Əsərin adı<input type="text" name="title" placeholder="Bakı mənzərəsi" required></label>
+      <label>Qiymət (AZN)<input type="number" name="price" min="0" placeholder="1200" required></label>
+      <label>Kateqoriya
+        <select name="category" class="sel">
+          <option>Rəsm əsərləri</option><option>Heykəllər</option><option>Fotoqrafiya</option>
+          <option>Rəqəmsal incəsənət</option><option>Sənətkarlıq</option>
+        </select>
+      </label>
+      <label>Şəkil<input type="file" name="image" accept="image/*" required></label>
+      <button type="submit" class="btn btn-primary btn-block">Yüklə</button>
+    </form>
+    <p class="auth-note" id="uploadMsg"></p>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-backdrop" id="authModal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-brand"><span class="logo-mark">◆</span> Qalareya</div>
+
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-tab="login">Daxil ol</button>
+      <button class="auth-tab" data-tab="register">Qeydiyyat</button>
+    </div>
+
+    <!-- Google -->
+    <button class="btn-google" id="googleBtn">
+      <span class="g-ico">G</span> Google ilə davam et
+    </button>
+    <div class="auth-divider"><span>və ya email ilə</span></div>
+
+    <!-- LOGIN FORM -->
+    <form class="auth-form" id="loginForm">
+      <label>Email<input type="email" name="email" placeholder="ad@mail.az" required></label>
+      <label>Parol<input type="password" name="password" placeholder="••••••••" required></label>
+      <button type="submit" class="btn btn-primary btn-block">Daxil ol</button>
+    </form>
+
+    <!-- REGISTER FORM -->
+    <form class="auth-form" id="registerForm" style="display:none">
+      <label>Ad və soyad<input type="text" name="name" placeholder="Rauf Əliyev" required></label>
+      <label>Email<input type="email" name="email" placeholder="ad@mail.az" required></label>
+      <label>Parol<input type="password" name="password" placeholder="Ən azı 8 simvol" required></label>
+      <label class="role-row">
+        <input type="checkbox" name="artist"> Mən rəssamam — əsər yükləmək istəyirəm
+      </label>
+      <button type="submit" class="btn btn-primary btn-block">Qeydiyyatdan keç</button>
+    </form>
+
+    <p class="auth-note" id="authMsg"></p>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script>
+// Service worker-i qeydiyyatdan keçir (offline + PWA)
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(()=>{}));
+}
+</script>
+</body>
+</html>
